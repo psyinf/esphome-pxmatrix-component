@@ -91,7 +91,7 @@ def to_code(config):
     #yield display.register_display(var, config)
 
     if CONF_LAMBDA in config:
-        lambda_ = yield cg.process_lambda(config[CONF_LAMBDA], [(display.DisplayBufferRef, 'it')],
+        lambda_ = yield cg.process_lambda(config[CONF_LAMBDA], [(display.DisplayBuffer, 'it')],
                                           return_type=cg.void)
         cg.add(var.set_writer(lambda_))
 
